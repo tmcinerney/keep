@@ -1,0 +1,27 @@
+{
+  "name": "keep",
+  "productName": "Keep",
+  "version": "0.1.0",
+  "description": "Google Keep menu bar app for macOS",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-packager ./ --icon=Keep.icns --overwrite --platform=darwin --quiet",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/tmcinerney/keep",
+  "keywords": [
+    "google",
+    "keep",
+    "tray"
+  ],
+  "author": "Travers McInerney",
+  "license": "MIT",
+  "dependencies": {
+    "menubar": "^5.2.3"
+  },
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "electron-packager": "^8.5.2"
+  }
+}
