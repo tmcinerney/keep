@@ -1,8 +1,21 @@
-# Keep
+# keep
+> Simple Google Keep menu bar application build in Electron.
 
+<img alt="Keep" src="screenshot.png" style="width: 380px;" />
 
-## Todo
-- [ ] Better icons
-- [ ] Add session save support
-- [ ] Add option menu to exit
-- [ ] Allow configuration of size etc
+## Install
+```sh
+git clone https://github.com/tmcinerney/keep
+cd keep
+npm install
+```
+
+## Run
+```sh
+npm run start
+```
+
+## Build
+```sh
+npm run build
+```

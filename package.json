@@ -5,15 +5,16 @@
   "description": "Google Keep menu bar app for macOS",
   "main": "main.js",
   "scripts": {
-    "build": "electron-packager ./ --icon=Keep.icns --overwrite --platform=darwin --quiet",
+    "build": "npm run build:macos",
+    "build:macos": "electron-packager . --electron-version 1.4.13 --icon=assets/icon.icns --ignore='^/(dist|assets)$' --out=dist --overwrite --platform=darwin --quiet",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/tmcinerney/keep",
   "keywords": [
+    "electron",
     "google",
-    "keep",
-    "tray"
+    "keep"
   ],
   "author": "Travers McInerney",
   "license": "MIT",

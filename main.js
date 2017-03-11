@@ -1,3 +1,4 @@
+const path     = require('path')
 const { Menu } = require('electron')
 const Menubar  = require('menubar')
 
@@ -12,6 +13,7 @@ const contextMenu = Menu.buildFromTemplate([{
 const menubar = Menubar({
   alwaysOnTop: true,
   height: 600,
+  icon: path.join(__dirname, 'assets', 'IconTemplate.png'),
   preloadWindow: true,
   showDockIcon: false,
   showOnAllWorkspaces: true,
