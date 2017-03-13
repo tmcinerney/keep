@@ -3,6 +3,12 @@ const { Menu } = require('electron')
 const Menubar  = require('menubar')
 
 const contextMenu = Menu.buildFromTemplate([{
+  label: 'Refresh',
+  accelerator: 'Cmd+R',
+  click: () => {
+    menubar.window.reload()
+  }
+},{
   label: 'Quit Keep',
   accelerator: 'Cmd+Q',
   click: () => {

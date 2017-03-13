@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "build": "npm run build:macos",
-    "build:macos": "electron-packager . --electron-version 1.4.13 --icon=assets/icon.icns --ignore='^/(dist|assets)$' --out=dist --overwrite --platform=darwin --quiet",
+    "build:macos": "electron-packager . --electron-version 1.4.13 --icon=assets/icon.icns --ignore='^/(dist)$' --out=dist --overwrite --platform=darwin --quiet",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
