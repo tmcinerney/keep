@@ -2,21 +2,8 @@ const path     = require('path')
 const { Menu } = require('electron')
 const Menubar  = require('menubar')
 
-const contextMenu = Menu.buildFromTemplate([{
-  label: 'Refresh',
-  accelerator: 'Cmd+R',
-  click: () => {
-    menubar.window.reload()
-  }
-},{
-  label: 'Quit Keep',
-  accelerator: 'Cmd+Q',
-  click: () => {
-    menubar.app.quit()
-  }
-}])
-
-const menubar = Menubar({
+// Application
+const keep = Menubar({
   alwaysOnTop: true,
   height: 600,
   icon: path.join(__dirname, 'assets', 'IconTemplate.png'),
@@ -27,12 +14,53 @@ const menubar = Menubar({
   width: 380
 })
 
-menubar.on('focus-lost', () => {
-  menubar.hideWindow()
-})
+// Event definition
+const hide = () => {
+  keep.hideWindow()
+}
 
-menubar.on('ready', () => {
-  menubar.tray.on('right-click', () => {
-    menubar.tray.popUpContextMenu(contextMenu)
-  })
-})
+const quit = () => {
+  keep.app.quit()
+}
+
+const ready = () => {
+  Menu.setApplicationMenu(applicationMenu)
+  keep.tray.on('right-click', showContextMenu)
+}
+
+const reload = () => {
+  menubar.window.reload() 
+}
+
+const showContextMenu = () => {
+  keep.tray.popUpContextMenu(contextMenu)
+}
+
+// Menus
+const contextMenu = Menu.buildFromTemplate([
+  { label: 'Refresh', accelerator: 'Cmd+R', click: reload },
+  { label: 'Quit Keep', accelerator: 'Cmd+Q', click: quit }
+])
+
+const applicationMenu = Menu.buildFromTemplate([{
+  label: 'Application',
+  submenu: [
+    { label: 'About Application', selector: 'orderFrontStandardAboutPanel:' },
+    { type: 'separator' },
+    { label: 'Quit', accelerator: 'Command+Q', click: quit }
+  ]}, {
+  label: 'Edit',
+  submenu: [
+    { label: 'Undo', accelerator: 'CmdOrCtrl+Z', selector: 'undo:' },
+    { label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', selector: 'redo:' },
+    { type: 'separator' },
+    { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
+    { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+    { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
+    { label: 'Select All', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' }
+  ]}
+])
+
+// Event binding
+keep.on('focus-lost', hide)
+keep.on('ready', ready)
