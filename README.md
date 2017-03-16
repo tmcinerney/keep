@@ -1,7 +1,7 @@
 # keep
 > Simple Google Keep menu bar application build in Electron.
 
-<img alt="Keep" src="screenshot.png" style="width: 380px;" />
+![Keep App](screenshot.png)
 
 ## Download
 The latest binaries can be found [here](https://github.com/tmcinerney/keep/releases).
