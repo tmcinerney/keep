@@ -29,7 +29,7 @@ const ready = () => {
 }
 
 const reload = () => {
-  menubar.window.reload() 
+  keep.window.reload()
 }
 
 const showContextMenu = () => {
