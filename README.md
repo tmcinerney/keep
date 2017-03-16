@@ -1,5 +1,5 @@
 # keep
-> Simple Google Keep menu bar application build in Electron.
+> Simple Google Keep menu bar application built in Electron.
 
 ![Keep App](screenshot.png)
 
