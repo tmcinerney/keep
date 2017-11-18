@@ -1,7 +1,7 @@
 {
   "name": "keep",
   "productName": "Keep",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Google Keep menu bar app for macOS",
   "main": "main.js",
   "scripts": {
