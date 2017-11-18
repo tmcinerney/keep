@@ -1,1 +1,7 @@
-theme: jekyll-theme-minimal
+---
+---
+
+@import "{{ site.theme }}";
+
+theme: jekyll-theme-tactile
+show_downloads: "true"
