@@ -3,29 +3,35 @@
 
 ![Keep App](screenshot.png)
 
-## Download
-The latest binaries can be found [here](https://github.com/tmcinerney/keep/releases).
+## Install
+You can install Keep by downloading the latest binaries, which can be found [here](https://github.com/tmcinerney/keep/releases).
 
 ### Homebrew Cask
-Assuming you have `brew` (https://brew.sh) and `brew cask` (https://caskroom.github.io) installed and working:
+To install the app using Homebrew Cask:
 
 ```sh
 brew cask install keep
 ```
 
-## Install
+## Develop
+If you want to run the code locally, clone the code and install node modules:
+
 ```sh
 git clone https://github.com/tmcinerney/keep
 cd keep
 npm install
 ```
 
-## Run
+### Run
+To run the application without building an `.app` file:
+
 ```sh
 npm run start
 ```
 
-## Build
+### Build
+To build a local `.app` file:
+
 ```sh
 npm run build
 ```

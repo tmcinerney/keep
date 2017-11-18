@@ -1,0 +1,14 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+#main_content {
+  h1, blockquote {
+    display:none;
+  }
+  
+  blockquote + p {
+    text-align: center;
+  }
+}
