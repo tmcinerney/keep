@@ -35,3 +35,21 @@ To build a local `.app` file:
 ```sh
 npm run build
 ```
+
+## Donate
+If you would like to donate, you can use the following addresses:
+
+### Bitcoin
+```
+1Fvav7ATZvuAZ2Xv8JU9jAUmeV8MCLSCUF
+```
+
+### Ethereum
+```
+0x9a6B7DF0c5EDAE69408A79428B8e7Fa8A318AD60
+```
+
+### Litecoin
+```
+LQ5RaA6nafJtQKkmu3gZKketJ9voBCYz7t
+```
