@@ -14,6 +14,9 @@ const keep = Menubar({
   width: 380
 })
 
+// State
+const getOpenAtLogin = () => keep.app.getLoginItemSettings().openAtLogin
+
 // Event definition
 const hide = () => {
   keep.hideWindow()
@@ -33,11 +36,26 @@ const reload = () => {
 }
 
 const showContextMenu = () => {
+
   keep.tray.popUpContextMenu(contextMenu)
+}
+
+const toggleOpenAtLogin = () => {
+  const openAtLogin = !getOpenAtLogin
+
+  keep.app.setLoginItemSettings({
+    openAtLogin: !openAtLogin
+  })
 }
 
 // Menus
 const contextMenu = Menu.buildFromTemplate([
+  {
+    label: 'Start on Login',
+    type: 'checkbox',
+    checked: getOpenAtLogin(),
+    click: toggleOpenAtLogin
+  },
   { label: 'Refresh', accelerator: 'Cmd+R', click: reload },
   { label: 'Quit Keep', accelerator: 'Cmd+Q', click: quit }
 ])
