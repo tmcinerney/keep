@@ -18,33 +18,24 @@ const keep = Menubar({
 const getOpenAtLogin = () => keep.app.getLoginItemSettings().openAtLogin
 
 // Event definition
-const hide = () => {
-  keep.hideWindow()
-}
+const hide = () => keep.hideWindow()
 
-const quit = () => {
-  keep.app.quit()
-}
+const quit = () => keep.app.quit()
 
 const ready = () => {
   Menu.setApplicationMenu(applicationMenu)
   keep.tray.on('right-click', showContextMenu)
 }
 
-const reload = () => {
-  keep.window.reload()
-}
+const reload = () => keep.window.reload()
 
-const showContextMenu = () => {
+const showContextMenu = () => keep.tray.popUpContextMenu(contextMenu)
 
-  keep.tray.popUpContextMenu(contextMenu)
-}
-
-const toggleOpenAtLogin = () => {
-  const openAtLogin = !getOpenAtLogin
+const toggleOpenAtLogin = (e) => {
+  const openAtLogin = e.checked
 
   keep.app.setLoginItemSettings({
-    openAtLogin: !openAtLogin
+    openAtLogin: openAtLogin
   })
 }
 
