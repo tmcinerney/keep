@@ -19,21 +19,21 @@ If you want to run the code locally, clone the code and install node modules:
 ```sh
 git clone https://github.com/tmcinerney/keep
 cd keep
-npm install
+yarn install
 ```
 
 ### Run
 To run the application without building an `.app` file:
 
 ```sh
-npm run start
+yarn run start
 ```
 
 ### Build
 To build a local `.app` file:
 
 ```sh
-npm run build
+yarn build
 ```
 
 ## Donate
