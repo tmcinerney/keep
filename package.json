@@ -1,7 +1,7 @@
 {
   "name": "keep",
   "productName": "Keep",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Google Keep menu bar app for macOS",
   "main": "main.js",
   "scripts": {
@@ -20,10 +20,10 @@
   "author": "Travers McInerney",
   "license": "MIT",
   "dependencies": {
-    "menubar": "^5.2.3"
+    "menubar": "5.2.3"
   },
   "devDependencies": {
-    "electron": "^1.7.9",
-    "electron-packager": "^9.1.0"
+    "electron": "2.0.0",
+    "electron-packager": "12.0.2"
   }
 }
