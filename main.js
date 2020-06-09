@@ -1,55 +1,64 @@
 const path     = require('path')
 const { Menu } = require('electron')
-const Menubar  = require('menubar')
+const { menubar } = require('menubar')
 
 // Application
-const keep = Menubar({
-  alwaysOnTop: true,
-  height: 600,
+const keep = menubar({
+  browserWindow: {
+    alwaysOnTop: true,
+    frame: false,
+    height: 700,
+    movable: false,
+    resizable: true,
+    width: 500
+  },
   icon: path.join(__dirname, 'assets', 'IconTemplate.png'),
+  index: 'https://keep.google.com',
+  loadUrlOptions: {
+    userAgent: 'Chrome'
+  },
   preloadWindow: true,
   showDockIcon: false,
   showOnAllWorkspaces: true,
-  tooltip: 'Keep',
-  width: 380
-})
+  tooltip: 'Keep'
+});
 
 // State
 const getOpenAtLogin = () => keep.app.getLoginItemSettings().openAtLogin
 
 // Event definition
-const hide = () => keep.hideWindow()
+const hide  = () => keep.hideWindow();
 
-const quit = () => keep.app.quit()
+const quit  = () => keep.app.quit();
 
 const ready = () => {
-  Menu.setApplicationMenu(applicationMenu)
-  keep.tray.on('right-click', showContextMenu)
-}
+  Menu.setApplicationMenu(applicationMenu);
+  keep.tray.on('right-click', showContextMenu);
+};
 
-const reload = () => keep.window.reload()
+const reload = () => keep.window.reload();
 
-const showContextMenu = () => keep.tray.popUpContextMenu(contextMenu)
+const showContextMenu = () => keep.tray.popUpContextMenu(contextMenu);
 
 const toggleOpenAtLogin = (e) => {
-  const openAtLogin = e.checked
+  const openAtLogin = e.checked;
 
   keep.app.setLoginItemSettings({
     openAtLogin: openAtLogin
-  })
-}
+  });
+};
 
 // Menus
 const contextMenu = Menu.buildFromTemplate([
   {
-    label: 'Start on Login',
+    label: 'Start on login',
     type: 'checkbox',
     checked: getOpenAtLogin(),
     click: toggleOpenAtLogin
   },
   { label: 'Refresh', accelerator: 'Cmd+R', click: reload },
   { label: 'Quit Keep', accelerator: 'Cmd+Q', click: quit }
-])
+]);
 
 const applicationMenu = Menu.buildFromTemplate([{
   label: 'Application',
@@ -68,8 +77,8 @@ const applicationMenu = Menu.buildFromTemplate([{
     { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
     { label: 'Select All', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' }
   ]}
-])
+]);
 
 // Event binding
-keep.on('focus-lost', hide)
-keep.on('ready', ready)
+keep.on('focus-lost', hide);
+keep.on('ready', ready);
